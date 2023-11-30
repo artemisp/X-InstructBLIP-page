@@ -85,6 +85,17 @@
             width: 100%;
             height: 100%;
         }
+         /* Style for links */
+        .header-links a {
+            color: white; /* Set link color to white */
+            font-weight: bold; /* Make text bold */
+            margin-right: 20px; /* Add space to the right of each link */
+        }
+
+        /* You might also want to add hover effects */
+        .header-links a:hover {
+            text-decoration: underline; /* Example hover effect */
+        }
     </style>
 </head>
 <body>
@@ -92,33 +103,51 @@
     <div class="header">
         <h1>X-InstructBLIP</h1>
         <h2>A Framework for aligning X-Modal instruction-aware representations to LLMs and Emergent Cross-modal Reasoning</h2>
+        <h3>Salesforce AI Research</h3>
+        <div class="header-links">
+        <a href="https://github.com/artemisp/LAVIS-XInstructBLIP">Code</a> <a href="">Paper</a>
+        </div>
     </div>
+
 
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <img src="assets/architecture.png" class="card-img-top img-fluid" alt="X-InstructBLIP Architecture">
+                    <div class="card-body">
+                        <h3>Abstract</h3>
+                        <p>Vision-language pre-training and instruction tuning have demonstrated general-purpose capabilities in 2D visual reasoning tasks by aligning visual encoders with state-of-the-art large language models (LLMs). In this paper, we introduce a simple, yet effective, cross-modality framework built atop frozen LLMs that allows the integration of various modalities without extensive modality-specific customization. To facilitate instruction-modality fine-tuning, we collect high-quality instruction tuning data in an automatic and scalable manner, composed of 24K QA samples for audio and 250K QA samples for 3D.
+                            Leveraging instruction-aware representations, our model performs comparably with leading-edge counterparts without the need of extensive modality-specific pre-training or customization. Furthermore, our approach demonstrates cross-modal reasoning abilities across two or more input modalities, despite each modality projection being trained individually. 
+                            To study the model's cross-modal abilities, we contribute a novel Discriminative Cross-modal Reasoning (DisCRn) evaluation task, comprising 9K audio-video QA samples and 28K image-3D QA samples that require the model to reason discriminatively across disparate input  modalities.</p>
+                    </div>
+                </div>
+            </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
                     <div class="card-body">
                         <h3>Overview</h3>
+                        <img src="assets/architecture.png" class="card-img-top img-fluid" alt="X-InstructBLIP Architecture">
                         <p>X-InstructBLIP employs individually encoded modalities, each transformed to the language domain via a uniquely trained, instruction-aware Q-Former. The input to the LLM is the Q-Former output representation, cued with a modality-specific prefix, "Modality-X"and followed by the instruction. This approach results in competitive understanding within individual modalities while revealing emergent capabilities for cross-modal comprehension.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <img src="assets/qualitative_examples.png" class="card-img-top img-fluid" alt="X-InstructBLIP Examples" class="header-image">
                     <div class="card-body">
                         <h3>Qualitative Examples</h3>
+                        <img src="assets/qualitative_examples.png" class="card-img-top img-fluid" alt="X-InstructBLIP Examples" class="header-image">
                         <p>X-InstructBLIP demonstrates multifaceted capabilities across the four examined modalities: image, video, audio, and 3D. It proficiently navigates tasks from image and 3D captioning to sophisticated cross-modal reasoning. This encompasses both discriminative and joint reasoning scenarios, showcasing its versatile applicability and nuanced understanding in diverse contexts.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card">
+                    <h3>New Benchmark: Discriminative Cross-Modal Reasoning</h3>
                     <img src="assets/discrn_examples.png" class="card-img-top img-fluid" alt="Discrn Examples" class="header-image">
                     <div class="card-body">
-                        <h3>New Benchmark: Discriminative Cross-Modal Reasoning</h3>
                         <p> Given two distinct modality inputs, the model needs to select the entity that matches the property queried. Audio is symbolized by waveforms and its semantics are conveyed via annotated captions, 3D is illustrated through a point cloud visualization, and videos are represented through the display of two random frames. X-InstructBLIP outperforms a robust captioning baseline, but the task remains an open challenge. </p>
                     </div>
                 </div>
