@@ -10,7 +10,41 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.5/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9FvmG+3T9eJYFhwHR3qGsgJzJmziXUPv5UggCebuB4BiNBS4pCFmvJLm" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+1C/zrO/8S27xjGj7kMj6PDb/cfUJgyj1Rf" crossorigin="anonymous"></script>
+    <script>
+        function copyToClipboard() {
+                var citationText = document.getElementById('citation-text').innerText;
+                navigator.clipboard.writeText(citationText).then(() => {
+                    alert('Citation copied to clipboard');
+                }).catch(err => {
+                    console.error('Error in copying text: ', err);
+                });
+            }
+    </script>
     <style>
+        .citation-text {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+            align-content: left;
+        }
+
+        .copy-button {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            color: white;
+            background-color: #fafafa;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .copy-button:hover {
+            background-color: #7d8389;
+        }
+
         /* Reset margins and padding */
         * {
             margin: 0;
@@ -28,7 +62,7 @@
 
         /* Header styling */
         .header {
-            background-color: #202020;
+            background-color: #88b5c8;
             color: #f5f5f5;
             padding: 20px 0;
             text-align: center;
@@ -86,6 +120,9 @@
             height: 100%;
         }
          /* Style for links */
+         a {
+            color: white;
+         }
         .header-links a {
             color: white; /* Set link color to white */
             font-weight: bold; /* Make text bold */
@@ -96,6 +133,391 @@
         .header-links a:hover {
             text-decoration: underline; /* Example hover effect */
         }
+
+        .svg-images {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Adjust the space between images */
+        }
+
+        .small-image {
+            width: auto; /* Adjust width as needed */
+            height: 100px; /* Keeps the aspect ratio */
+        }
+
+        .links-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: #F7F7F7; /* Change as needed */
+            border: 1px solid #D1D1D1;
+            border-radius: 4px;
+            padding: 8px 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            font-size: 16px; /* Adjust as needed */
+            transition: background-color 0.3s;
+        }
+
+        .links-button:hover {
+            background-color: #E7E7E7;
+        }
+
+        .links-logo {
+            margin-right: 8px; /* Space between the logo and text */
+            width: 24px; /* Adjust as needed */
+            height: 24px;
+        }
+        
+
+        /* CSS talk bubble */
+        .talk-bubble {
+            margin: 10px;
+        display: inline-block;
+        position: relative;
+            width: 200px;
+            height: auto;
+            background-color: rgb(224, 247, 255);
+        }
+        .border{
+        border: 8px solid  rgb(224, 247, 255);
+        }
+        .round{
+        border-radius: 30px;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+
+        }
+
+        /* Right triangle placed top left flush. */
+        .tri-right.border.left-mid:before {
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+        left: -40px;
+            right: auto;
+        top: -0px;
+            bottom: auto;
+            border: 32px solid;
+            border-color:  rgb(224, 247, 255) transparent transparent transparent;
+        }
+        .tri-right.left-mid:after{
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+        left: -20px;
+            right: auto;
+        top: 10px;
+            bottom: auto;
+            border: 22px solid;
+            border-color: rgb(224, 247, 255)transparent transparent transparent;
+        }
+        /* Right triangle placed top left flush. */
+        .tri-right.border.left-top:before {
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+        left: -40px;
+            right: auto;
+        top: -8px;
+            bottom: auto;
+            border: 32px solid;
+            border-color:  rgb(224, 247, 255) transparent transparent transparent;
+        }
+        .tri-right.left-top:after{
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+        left: -20px;
+            right: auto;
+        top: 0px;
+            bottom: auto;
+            border: 22px solid;
+            border-color: rgb(224, 247, 255)transparent transparent transparent;
+        }
+
+        /* Right triangle, left side slightly down */
+        .tri-right.border.left-in:before {
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+        left: -40px;
+            right: auto;
+        top: 30px;
+            bottom: auto;
+            border: 20px solid;
+            border-color:  rgb(224, 247, 255)  rgb(224, 247, 255) transparent transparent;
+        }
+        .tri-right.left-in:after{
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+        left: -20px;
+            right: auto;
+        top: 38px;
+            bottom: auto;
+            border: 12px solid;
+            border-color: rgb(224, 247, 255) rgb(224, 247, 255) transparent transparent;
+        }
+
+        /* Right triangle, left side slightly down */
+        .tri-right.border.left-btm:before {
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+        left: -40px;
+            right: auto;
+        top: 70px;
+            bottom: auto;
+            border: 20px solid;
+            border-color:  rgb(224, 247, 255)  rgb(224, 247, 255) transparent transparent;
+        }
+        .tri-right.left-btm:after{
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+        left: -20px;
+            right: auto;
+        top: 70px;
+            bottom: auto;
+            border: 12px solid;
+            border-color: rgb(224, 247, 255) rgb(224, 247, 255) transparent transparent;
+        }
+
+        /*Right triangle, placed bottom left side slightly in*/
+        .tri-right.border.btm-left:before {
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: -8px;
+        right: auto;
+        top: auto;
+            bottom: -40px;
+            border: 32px solid;
+            border-color: transparent transparent transparent  rgb(224, 247, 255);
+        }
+        .tri-right.btm-left:after{
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 0px;
+        right: auto;
+        top: auto;
+            bottom: -20px;
+            border: 22px solid;
+            border-color: transparent transparent transparent rgb(224, 247, 255);
+        }
+
+        /*Right triangle, placed bottom left side slightly in*/
+        .tri-right.border.btm-left-in:before {
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 30px;
+        right: auto;
+        top: auto;
+            bottom: -40px;
+            border: 20px solid;
+            border-color:  rgb(224, 247, 255) transparent transparent  rgb(224, 247, 255);
+        }
+        .tri-right.btm-left-in:after{
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 38px;
+        right: auto;
+        top: auto;
+            bottom: -20px;
+            border: 12px solid;
+            border-color: rgb(224, 247, 255) transparent transparent rgb(224, 247, 255);
+        }
+
+        /*Right triangle, placed bottom right side slightly in*/
+        .tri-right.border.btm-right-in:before {
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+        left: auto;
+            right: 30px;
+            bottom: -40px;
+            border: 20px solid;
+            border-color:  rgb(224, 247, 255)  rgb(224, 247, 255) transparent transparent;
+        }
+        .tri-right.btm-right-in:after{
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+        left: auto;
+            right: 38px;
+            bottom: -20px;
+            border: 12px solid;
+            border-color: rgb(224, 247, 255) rgb(224, 247, 255) transparent transparent;
+        }
+        .vertical-container {
+            display: flex;
+            flex-direction: column; /* Aligns children vertically */
+            align-items: center; /* Horizontally centers items if container is wider than the contents */
+            justify-content: space-around; /* Adjusts the spacing of items along the vertical axis */
+            height: 300px; /* Or any desired height */
+        }
+        /*
+            left: -8px;
+        right: auto;
+        top: auto;
+            bottom: -40px;
+            border: 32px solid;
+            border-color: transparent transparent transparent  rgb(224, 247, 255);
+            left: 0px;
+        right: auto;
+        top: auto;
+            bottom: -20px;
+            border: 22px solid;
+            border-color: transparent transparent transparent rgb(224, 247, 255);
+
+        /*Right triangle, placed bottom right side slightly in*/
+        .tri-right.border.btm-right:before {
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+        left: auto;
+            right: -8px;
+            bottom: -40px;
+            border: 20px solid;
+            border-color:  rgb(224, 247, 255)  rgb(224, 247, 255) transparent transparent;
+        }
+        .tri-right.btm-right:after{
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+        left: auto;
+            right: 0px;
+            bottom: -20px;
+            border: 12px solid;
+            border-color: rgb(224, 247, 255) rgb(224, 247, 255) transparent transparent;
+        }
+
+        /* Right triangle, right side slightly down*/
+        .tri-right.border.right-in:before {
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+        left: auto;
+            right: -40px;
+        top: 30px;
+            bottom: auto;
+            border: 20px solid;
+            border-color:  rgb(224, 247, 255) transparent transparent  rgb(224, 247, 255);
+        }
+        .tri-right.right-in:after{
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+        left: auto;
+            right: -20px;
+        top: 55px;
+            bottom: auto;
+            border: 12px solid;
+            border-color: rgb(224, 247, 255) transparent transparent rgb(224, 247, 255);
+        }
+
+
+        /* Right triangle placed top right flush. */
+        .tri-right.border.right-mid:before {
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+        left: auto;
+            right: -40px;
+        top: -0px;
+            bottom: auto;
+            border: 32px solid;
+            border-color: rgb(224, 247, 255) transparent transparent transparent;
+        }
+        .tri-right.right-mid:after{
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+        left: auto;
+            right: -20px;
+        top: 30px;
+            bottom: auto;
+            border: 20px solid;
+            border-color: rgb(224, 247, 255) transparent transparent transparent;
+        }
+
+
+
+        /* Right triangle placed top right flush. */
+        .tri-right.border.right-top:before {
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+        left: auto;
+            right: -40px;
+        top: -8px;
+            bottom: auto;
+            border: 32px solid;
+            border-color: rgb(224, 247, 255) transparent transparent transparent;
+        }
+        .tri-right.right-top:after{
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+        left: auto;
+            right: -20px;
+        top: 10px;
+            bottom: auto;
+            border: 20px solid;
+            border-color: rgb(224, 247, 255) transparent transparent transparent;
+        }
+
+        /* talk bubble contents */
+        .talktext{
+        padding: 1em;
+        text-align: left;
+        line-height: 1.5em;
+        }
+        .talktext p{
+        /* remove webkit p margins */
+        -webkit-margin-before: 0em;
+        -webkit-margin-after: 0em;
+        }
+
+        audio {
+            transform: scale(0.7); /* Scale down the audio player */
+            transform-origin: top right; /* Adjust as needed */
+            margin-top: 10px; /* Reduced margin-top for the audio player */
+            margin-bottom: 10px; /* Reduced margin-bottom for the audio player */
+
+        }
+        .centered-container {
+            display: flex;
+            justify-content: center; /* Centers content horizontally */
+            align-items: center; /* Centers content vertically */
+            height: 100%; /* Take full height of the viewport */
+            text-align: center; /* Centers text inside the container */
+        }
     </style>
 </head>
 <body>
@@ -103,10 +525,23 @@
     <div class="header">
         <h1>X-InstructBLIP</h1>
         <h2>A Framework for aligning X-Modal instruction-aware representations to LLMs and Emergent Cross-modal Reasoning</h2>
-        <h3>Salesforce AI Research</h3>
-        <div class="header-links">
-        <a href="https://github.com/artemisp/LAVIS-XInstructBLIP">Code</a> <a href="">Paper</a>
+        <h4> <a href="https://artemisp.github.io">Artemis Panagopoulou</a><sup>2</sup>, <a href="https://www.linkedin.com/in/le-tycho-xue-5abbb9157/">Le Xue</a><sup>1</sup>, <a href="https://ningyu1991.github.io/">Ning Yu</a><sup>1</sup>, <a href="https://sites.google.com/site/junnanlics">Junnan Li</a><sup>1</sup>,<a href="https://sites.google.com/view/dongxu-li/home">Dongxu Li</a><sup>1</sup>, <a href="https://scholar.google.com/citations?user=hR249csAAAAJ&hl=en&oi=ao">Shafiq Joty</a><sup>1</sup>,<a href="https://scholar.google.com/citations?user=sgBB2sUAAAAJ&hl=en">Ran Xu</a><sup>1</sup>, <a href="https://scholar.google.com/citations?user=ImpbxLsAAAAJ&hl=en">Silvio Savarese</a><sup>1,3</sup>,<a href="https://scholar.google.com/citations?user=vaSdahkAAAAJ&hl=en">Caiming Xiong</a><sup>1</sup>, <a href="https://scholar.google.com/citations?user=hqNhUCYAAAAJ&hl=en">Juan Carlos Niebles</a><sup>1,3</sup></h4>
+        <h3>1. Salesforce AI Research &nbsp;&nbsp;2. University of Pennsylvania &nbsp;&nbsp;3. Stanford University</h3>
+        <div class="svg-images">
+            <img src="assets/Salesforce.com_logo.png" alt="salesforce logo" class="small-image">
+            <img src="assets/penn_logo.png" alt="penn logo" class="small-image">
+            <img src="assets/Stanford_Cardinal_logo.png" alt="stanford logo" class="small-image">
         </div>
+        <div class="header-links" style="margin-top: 20px;">
+            <button onclick="window.open('https://arxiv.org/pdf/2311.18799.pdf', '_blank')" class="links-button">
+                <img src="assets/arxiv-logo.svg" alt="arXiv Icon" class="links-logo" />
+                Paper
+            </button>
+            <button onclick="window.open('https://github.com/artemisp/LAVIS-XInstructBLIP', '_blank')" class="links-button">
+                <img src="assets/github_logo.png" alt="github Icon" class="links-logo" />
+                Code
+            </button>
+    </div>
     </div>
 
 
@@ -116,12 +551,258 @@
                 <div class="card">
                     <div class="card-body">
                         <h3>Abstract</h3>
-                        <p>Vision-language pre-training and instruction tuning have demonstrated general-purpose capabilities in 2D visual reasoning tasks by aligning visual encoders with state-of-the-art large language models (LLMs). In this paper, we introduce a simple, yet effective, cross-modality framework built atop frozen LLMs that allows the integration of various modalities without extensive modality-specific customization. To facilitate instruction-modality fine-tuning, we collect high-quality instruction tuning data in an automatic and scalable manner, composed of 24K QA samples for audio and 250K QA samples for 3D.
-                            Leveraging instruction-aware representations, our model performs comparably with leading-edge counterparts without the need of extensive modality-specific pre-training or customization. Furthermore, our approach demonstrates cross-modal reasoning abilities across two or more input modalities, despite each modality projection being trained individually. 
-                            To study the model's cross-modal abilities, we contribute a novel Discriminative Cross-modal Reasoning (DisCRn) evaluation task, comprising 9K audio-video QA samples and 28K image-3D QA samples that require the model to reason discriminatively across disparate input  modalities.</p>
+                        <p>Vision-language pre-training and instruction tuning have demonstrated general-purpose capabilities in 2D visual reasoning tasks by aligning visual encoders with state-of-the-art large language models (LLMs). In this paper, we introduce a simple, yet effective, cross-modality framework built atop frozen LLMs that allows the <b>integration of various modalities without extensive modality-specific customization</b>.</p> 
+                        <p>To facilitate instruction-modality fine-tuning, we collect high-quality instruction tuning data in an automatic and scalable manner, composed of 24K QA samples for audio and 250K QA samples for 3D. Leveraging instruction-aware representations, our model performs comparably with leading-edge counterparts without the need of extensive modality-specific pre-training or customization. Furthermore, our approach demonstrates <b>cross-modal reasoning abilities across two or more input modalities, despite each modality projection being trained individually.</b> </p>
+                         <p> To study the model's cross-modal abilities, we contribute a novel <b>Discriminative Cross-modal Reasoning (DisCRn) evaluation task</b>, comprising 9K audio-video QA samples and 28K image-3D QA samples that require the model to reason discriminatively across disparate input  modalities.</p>
                     </div>
                 </div>
             </div>
+    
+
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Single Modality Examples</h3>
+
+                            <div class="centered-container">
+                                <audio controls>
+                                    <source src="assets/nigthtingale.m4a" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                                <div class="header-links" style="margin-right: 1px; margin-left: 1px;">
+                                    <img src="assets/user.png" style="height: 40px; margin-top: 5px;"/>
+                                    <div class="talk-bubble tri-right round left-in">
+                                        <div class="talktext">
+                                        <p>What do you hear in the audio?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header-links" style="margin-right: 1px; margin-left: 1px;">
+                                    <div class="talk-bubble tri-right round btm-left right-in short">
+                                        <div class="talktext">
+                                        <p>birds are singing and a stream is flowing in the background</p>
+                                        </div>
+                                    </div>
+                                    <img src="assets/bot.png" style="height: 40px; margin-top: 5px;"/>
+                                </div>
+                            </div> 
+
+
+
+                            <div class="centered-container">
+                                <audio controls>
+                                    <source src="assets/sitar.m4a" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                                <div class="header-links" style="margin-right: 1px; margin-left: 1px;">
+                                    <img src="assets/user.png" style="height: 40px; margin-top: 5px;"/>
+                                    <div class="talk-bubble tri-right round left-in">
+                                        <div class="talktext">
+                                        <p>Where is this instrument from?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header-links" style="margin-right: 1px; margin-left: 1px;">
+                                    <div class="talk-bubble tri-right round btm-left right-top">
+                                        <div class="talktext">
+                                        <p>India</p>
+                                        </div>
+                                    </div>
+                                    <img src="assets/bot.png" style="height: 40px; margin-top: 5px;"/>
+                                </div>
+                            </div> 
+
+
+                            <div class="centered-container">
+                                <img src="assets/triceratops_horridus.gif" alt="triceratops 3d model" width="auto" height="170px" class="rotate-gif" loop="-1">
+                                <div class="header-links" style="margin-right: 1px; margin-left: 1px;">
+                                    <img src="assets/user.png" style="height: 40px; margin-top: 5px;"/>
+                                    <div class="talk-bubble tri-right round left-mid">
+                                        <div class="talktext">
+                                        <p>A short description.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header-links" style="margin-right: 1px; margin-left: 1px;">
+                                    <div class="talk-bubble tri-right round btm-left right-mid">
+                                        <div class="talktext">
+                                        <p>3D model of a triceratops dinosaur.</p>
+                                        </div>
+                                    </div>
+                                    <img src="assets/bot.png" style="height: 40px; margin-top: 5px;"/>
+                                </div>
+                            </div> 
+
+
+                            <div class="centered-container">
+                                <img src="assets/statue_of_liberty_figurine.gif" alt="statue of liberty 3d model" width="auto" height="170px" class="rotate-gif" loop="-1">
+                                <div class="header-links" style="margin-right: 1px; margin-left: 1px;">
+                                    <img src="assets/user.png" style="height: 40px; margin-top: 5px;"/>
+                                    <div class="talk-bubble tri-right round left-mid">
+                                        <div class="talktext">
+                                        <p>In which city is this statue located?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header-links" style="margin-right: 1px; margin-left: 1px;">
+                                    <div class="talk-bubble tri-right round btm-left right-top">
+                                        <div class="talktext">
+                                        <p>New York</p>
+                                        </div>
+                                    </div>
+                                    <img src="assets/bot.png" style="height: 40px; margin-top: 5px;"/>
+                                </div>
+                            </div> 
+
+
+                            <div class="centered-container" style="margin-top: 10px;">
+                                <video width="280px" autoplay muted playsinline loop="-1">
+                                    <source src="assets/mixkit-mime-in-front-of-the-eiffel-tower-4772-medium.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                  </video>
+                                <div class="header-links" style="margin-right: 1px; margin-left: 1px;">
+                                    <img src="assets/user.png" style="height: 40px; margin-top: 5px;"/>
+                                    <div class="talk-bubble tri-right round left-in">
+                                        <div class="talktext">
+                                        <p>Where is this video taking place?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header-links" style="margin-right: 1px; margin-left: 1px;">
+                                    <div class="talk-bubble tri-right round btm-left right-top">
+                                        <div class="talktext">
+                                        <p>Paris</p>
+                                        </div>
+                                    </div>
+                                    <img src="assets/bot.png" style="height: 40px; margin-top: 5px;"/>
+                                </div>
+                            </div> 
+
+                            <div class="centered-container" style="margin-top: 10px;">
+                                <video width="280px" autoplay muted playsinline loop="-1">
+                                    <source src="assets/mixkit-kites-on-the-beach-at-sunset-18763-medium.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                  </video>
+                                <div class="header-links" style="margin-right: 1px; margin-left: 1px;">
+                                    <img src="assets/user.png" style="height: 40px; margin-top: 5px;"/>
+                                    <div class="talk-bubble tri-right round left-in">
+                                        <div class="talktext">
+                                        <p>What is happening in the video?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                                
+                                <div class="header-links" style="margin-right: 1px; margin-left: 1px;">
+                                    <div class="talk-bubble tri-right round btm-left right-in">
+                                        <div class="talktext">
+                                        <p>A group of people flying kites on the beach at sunset.</p>
+                                        </div>
+                                    </div>
+                                    <img src="assets/bot.png" style="height: 40px; margin-top: 5px;"/>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+    
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Cross-Modal Reasoning Examples</h3>
+
+                        <div class="centered-container">
+                            <div class="vertical-container">
+                            <img src="assets/archive_sm_guitar_01_a.gif" alt="guitar 3d model" width="auto" height="170px" class="rotate-gif" loop="-1">
+                            <audio controls>
+                                <source src="assets/Moonlight sonata.m4a" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                            <div class="header-links" style="margin-right: 1px; margin-left: 1px;">
+                                <img src="assets/user.png" style="height: 40px; margin-top: 5px;"/>
+                                <div class="talk-bubble tri-right round left-btm">
+                                    <div class="talktext">
+                                    <p>Does the instrument in the 3d model play in the audio?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header-links" style="margin-right: 1px; margin-left: 1px;">
+                                <div class="talk-bubble tri-right round btm-left right-top">
+                                    <div class="talktext">
+                                    <p>No</p>
+                                    </div>
+                                </div>
+                                <img src="assets/bot.png" style="height: 40px; margin-top: 5px;"/>
+                            </div>
+                        </div> 
+
+
+                        <div class="centered-container">
+                            <div class="vertical-container">
+                            <img src="assets/pianoforte.gif" alt="pianoforte 3d model" width="auto" height="170px" class="rotate-gif" loop="-1">
+                            <audio controls>
+                                <source src="assets/Moonlight sonata.m4a" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                            <div class="header-links" style="margin-right: 1px; margin-left: 1px;">
+                                <img src="assets/user.png" style="height: 40px; margin-top: 5px;"/>
+                                <div class="talk-bubble tri-right round left-btm">
+                                    <div class="talktext">
+                                    <p>Does the instrument in the 3d model play in the audio?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header-links" style="margin-right: 1px; margin-left: 1px;">
+                                <div class="talk-bubble tri-right round btm-left right-top">
+                                    <div class="talktext">
+                                    <p>Yes</p>
+                                    </div>
+                                </div>
+                                <img src="assets/bot.png" style="height: 40px; margin-top: 5px;"/>
+                            </div>
+                        </div> 
+
+
+
+                        <div class="centered-container">
+                            <div class="vertical-container">
+                            <img src="assets/pianoforte.gif" alt="pianoforte 3d model" width="auto" height="170px" class="rotate-gif" loop="-1">
+                            <audio controls>
+                                <source src="assets/Moonlight sonata.m4a" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                            <div class="header-links" style="margin-right: 1px; margin-left: 1px;">
+                                <img src="assets/user.png" style="height: 40px; margin-top: 5px;"/>
+                                <div class="talk-bubble tri-right round left-btm">
+                                    <div class="talktext">
+                                    <p>Does the instrument in the 3d model play in the audio?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header-links" style="margin-right: 1px; margin-left: 1px;">
+                                <div class="talk-bubble tri-right round btm-left right-top">
+                                    <div class="talktext">
+                                    <p>Yes</p>
+                                    </div>
+                                </div>
+                                <img src="assets/bot.png" style="height: 40px; margin-top: 5px;"/>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
 
     <div class="container mt-4">
         <div class="row">
@@ -129,12 +810,30 @@
                 <div class="card">
                     <div class="card-body">
                         <h3>Overview</h3>
-                        <img src="assets/architecture.png" class="card-img-top img-fluid" alt="X-InstructBLIP Architecture">
-                        <p>X-InstructBLIP employs individually encoded modalities, each transformed to the language domain via a uniquely trained, instruction-aware Q-Former. The input to the LLM is the Q-Former output representation, cued with a modality-specific prefix, "Modality-X"and followed by the instruction. This approach results in competitive understanding within individual modalities while revealing emergent capabilities for cross-modal comprehension.</p>
+                        <img src="assets/main_figure.png" class="card-img-top img-fluid" alt="X-InstructBLIP main">
+                        <p>X-InstructBLIP is a simple and effective, scalable cross-modal framework to empower LLMs to handle a diverse range of tasks across a variety of modalities, without requiring modality-specific pre-training. 
+                            While X-InstructBLIP utilizes distinct pre-trained encoders for each modality, aligning them into the language domain through independently trained, instruction-aware Q-Formers. Despite the individual training of each modality, it demonstrates emergent capabilities in cross-modal comprehension.</p>
                     </div>
                 </div>
             </div>
+    
+    <div class="container mt-4">
+        <div class="row">
             <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Method</h3>
+                        <!-- <div class="header-links" style="margin-right: 100px;"></div> -->
+                        <img src="assets/qformer_only.png" class="card-img-top img-fluid" alt="X-InstructBLIP main" height="300px" style="margin-right: 100px; margin-left: 250px">
+                        <!-- <img src="assets/data.png" class="card-img-top img-fluid" alt="X-InstructBLIP main" height="300px"> -->
+                        <!-- </div> -->
+                        <p> Each modality Q-Former transforms a set of K trainable query tokens conditioned on both the instruction and the extra-linguistic modality input into instruction-aware language representation of the modality. The Q-Former module consists of two transformer submodules that share the same self-attention layers: one submodule interacts with the output of the modality encoder and the other is a BERT-base text transformer that serves as both an encoder and decoder. Each Q-Former is initialized with the pre-trained weights from BLIP-2, without the cross-attention layers due to a dimension mismatch between the image encoder in BLIP-2 and the other modality encoders. The modality embedding interacts with the instruction text and input query tokens  via cross-attention layers inserted every other transformer block. The transormed output query tokens are linearly projected to the frozen LLM's space through a learnable projection layer. Finally, the input to the LLM is the modality prefix, the transformed output query tokens in the LLM space, and the instruction. The model is optimized under a causal language modeling objective using the ground truth outputs for each example.
+                        <!-- <p>The right image shows the collection of training and evaluation datasets used. Oval-enclosed datasets are training datasets, while square cells signify out-of-domain evaluation sets. Datasets with a dashed outline are derived automatically from existing public datasets.Each Q-Former is optimized individually by subsampling examples from a variety of datasets, and instruction templates that correspond to each modality and task. Given the scarcity of instruction tuning data for a spectrum of modalities, we introduce a simple yet potent approach: a three-stage query data augmentation technique to leverage open-source LLMs to extract instruction-tuning data from captioning datasets. Similarly, for evaluation we leverage captioning data to generate cross-modal reasoning examples to establish a new benchmark for cross-modal models.  -->
+                        </p>
+                        </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
                         <h3>Qualitative Examples</h3>
@@ -142,14 +841,39 @@
                         <p>X-InstructBLIP demonstrates multifaceted capabilities across the four examined modalities: image, video, audio, and 3D. It proficiently navigates tasks from image and 3D captioning to sophisticated cross-modal reasoning. This encompasses both discriminative and joint reasoning scenarios, showcasing its versatile applicability and nuanced understanding in diverse contexts.</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="col-md-4">
                 <div class="card">
                     <h3>New Benchmark: Discriminative Cross-Modal Reasoning</h3>
                     <img src="assets/discrn_examples.png" class="card-img-top img-fluid" alt="Discrn Examples" class="header-image">
                     <div class="card-body">
-                        <p> Given two distinct modality inputs, the model needs to select the entity that matches the property queried. Audio is symbolized by waveforms and its semantics are conveyed via annotated captions, 3D is illustrated through a point cloud visualization, and videos are represented through the display of two random frames. X-InstructBLIP outperforms a robust captioning baseline, but the task remains an open challenge. </p>
+                        <p> Given two distinct modality inputs, the model needs to select the entity that matches the property queried. Audio is symbolized by waveforms and its semantics are conveyed via annotated captions, 3D is illustrated through a point cloud visualization, and videos are represented through the display of two random frames. X-InstructBLIP outperforms a robust captioning baseline, but the task remains an open challenge. 
+                            This task requires models not only to discriminate the inherent characteristics of the involved modalities but also to consider their relative positioning in the input.</p>
                     </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <h3>Citation</h3>
+                    <div class="card-body" style="align-items: left; background-color: #f4f4f4;">
+                        <pre id="citation-text" style="margin-bottom: 0px; margin-top: 0px;"> 
+                            <code>
+                        @misc{panagopoulou2023xinstructblip,
+                            title={X-InstructBLIP: A Framework for aligning X-Modal instruction-aware 
+                                representations to LLMs and Emergent Cross-modal Reasoning}, 
+                            author={Artemis Panagopoulou and Le Xue and Ning Yu and Junnan Li and Dongxu Li and 
+                                Shafiq Joty and Ran Xu and Silvio Savarese and Caiming Xiong and Juan Carlos Niebles},
+                            year={2023},
+                            eprint={2311.18799},
+                            archivePrefix={arXiv},
+                            primaryClass={cs.CV}
+                          }
+                        </code>
+                        </pre>
+                    </div>
+                    <button onclick="copyToClipboard()" class="copy-button" style="margin-top: 10px;">
+                        <img src="assets/copy-clipboard.png" alt="copy Icon" class="links-logo" /></button>
                 </div>
             </div>
 
@@ -157,7 +881,7 @@
                 <div class="card">
                     <h3>Ethics Statement</h3>
                     <div class="card-body">
-                        <p> In this research, we present a framework for aligning multiple modalities with a frozen large language model (LLM). Our methodology strictly involves the use of publicly available and free datasets, ensuring we do not engage in the collection of private data. However, it is crucial to acknowledge that publicly sourced datasets carry implicit biases. These biases reflect historical and societal inequalities, potentially influencing the model's outputs. Our framework builds upon a pre-existing frozen LLM. While this approach benefits from the extensive knowledge encoded within the LLM, it is important to recognize that such models can inherently propagate biases present in their training data. Additionally, there is a non-negligible risk of generating false or misleading information. While there exist tools to measure language model toxicity such as Helm, their evaluation datasets are constrained in the language modality, and hence are not applicable to measure toxicity across modalities which is the focus of this work. We leave the generation of cross-modal datasets for toxicity and bias measurement as a future research direction. 
+                        <p> In this research, we present a framework for aligning multiple modalities with a frozen large language model (LLM). Our methodology strictly involves the use of publicly available and free datasets, ensuring we do not engage in the collection of private data. However, it is crucial to acknowledge that publicly sourced datasets carry implicit biases. These biases reflect historical and societal inequalities, potentially influencing the model's outputs. Our framework builds upon a pre-existing frozen LLM. While this approach benefits from the extensive knowledge encoded within the LLM, it is important to recognize that such models can inherently propagate biases present in their training data. Additionally, there is a non-negligible risk of generating false or misleading information. While there exist tools to measure language model toxicity such as <a href="https://crfm.stanford.edu/helm/latest/">HELM</a>, their evaluation datasets are constrained in the language modality, and hence are not applicable to measure toxicity across modalities which is the focus of this work. We leave the generation of cross-modal datasets for toxicity and bias measurement as a future research direction. 
                             Users of our framework should be aware of these limitations and exercise caution, particularly in applications where the accuracy and impartiality of outputs are critical. We advocate for responsible use of our framework, especially in sensitive contexts. Users should critically assess and verify the model's outputs and consider the potential for reinforcing biases or spreading misinformation. Furthermore, we commit to transparency regarding our model's capabilities and limitations. All code, data, and model weights will be released to ensure reproducibility and encourage external evaluation and subsequent research.
                         </p>
                     </div>
