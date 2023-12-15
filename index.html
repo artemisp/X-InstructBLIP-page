@@ -544,6 +544,21 @@
         .professional-table tr:hover {
             background-color: #ddd; /* Row hover effect */
         }
+
+        .video-container {
+            width: 80%;
+            overflow: hidden;
+            position: relative;
+            padding-top: 0; /* Aspect ratio (16:9) */
+          }
+          
+          .video-main {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
     </style>
 </head>
 <body>
@@ -563,7 +578,7 @@
                 <img src="assets/arxiv-logo.svg" alt="arXiv Icon" class="links-logo" />
                 Paper
             </button>
-            <button onclick="window.open('https://github.com/artemisp/LAVIS-XInstructBLIP/tree/main/projects/xinstructblip', '_blank')" class="links-button">
+            <button onclick="window.open('https://github.com/salesforce/LAVIS/tree/main/projects/xinstructblip', '_blank')" class="links-button">
                 <img src="assets/github_logo.png" alt="github Icon" class="links-logo" />
                 Code
             </button>
@@ -571,15 +586,22 @@
     </div>
 
 
+
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" align-items="center" display="flex">
                         <h3>Abstract</h3>
                         <p>Vision-language pre-training and instruction tuning have demonstrated general-purpose capabilities in 2D visual reasoning tasks by aligning visual encoders with state-of-the-art large language models (LLMs). In this paper, we introduce a simple, yet effective, cross-modality framework built atop frozen LLMs that allows the <b>integration of various modalities without extensive modality-specific customization</b>.</p> 
                         <p>To facilitate instruction-modality fine-tuning, we collect high-quality instruction tuning data in an automatic and scalable manner, composed of 24K QA samples for audio and 250K QA samples for 3D. Leveraging instruction-aware representations, our model performs comparably with leading-edge counterparts without the need of extensive modality-specific pre-training or customization. Furthermore, our approach demonstrates <b>cross-modal reasoning abilities across two or more input modalities, despite each modality projection being trained individually.</b> </p>
                          <p> To study the model's cross-modal abilities, we contribute a novel <b>Discriminative Cross-modal Reasoning (DisCRn) evaluation task</b>, comprising 9K audio-video QA samples and 28K image-3D QA samples that require the model to reason discriminatively across disparate input  modalities.</p>
+                         <div class="video-container" style="display: block; margin-left: auto; margin-right: auto;" >
+                            <video  class="video-main" autoplay muted playsinline loop="-1">
+                               <source src="assets/XInstructBLIP_video_final.mp4" type="video/mp4">
+                               Your browser does not support the video tag.
+                             </video>
+                           </div>
                     </div>
                 </div>
             </div>
